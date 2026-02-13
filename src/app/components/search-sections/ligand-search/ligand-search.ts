@@ -105,6 +105,13 @@ export class LigandSearchComponent {
     this.onSearch(suggestion);
   }
 
+  onSuggestionMouseDown(event: MouseEvent, suggestion: string): void {
+    // mousedown ocurre antes del blur del input; evita que se cierre la lista
+    // antes de ejecutar la selecciÃ³n y navegaciÃ³n.
+    event.preventDefault();
+    this.selectSuggestion(suggestion);
+  }
+
   onBlur(): void {
     // Cuando el usuario sale del input, vaciamos las sugerencias para ocultar la lista
     setTimeout(() => {

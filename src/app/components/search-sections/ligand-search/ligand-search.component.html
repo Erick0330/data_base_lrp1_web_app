@@ -23,7 +23,7 @@
           @for (suggestion of filteredSuggestions(); track suggestion) {
             <li
               class="list-group-item list-group-item-action pointer"
-              (click)="selectSuggestion(suggestion)"
+              (mousedown)="onSuggestionMouseDown($event, suggestion)"
             >
               {{ suggestion }}
             </li>
