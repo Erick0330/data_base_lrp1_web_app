@@ -1,0 +1,25 @@
+<div class="home-container">
+  <!-- Sección de introducción -->
+  <app-intro-section></app-intro-section>
+
+  <!-- Sección de búsqueda por ligando -->
+  <div class="search-section mb-5">
+    <h2 class="section-title mb-4">
+      <i class="bi bi-search me-2"></i>Ligand Search
+    </h2>
+    <app-ligand-search (search)="onLigandSearch($event)"></app-ligand-search>
+  </div>
+
+  <!-- Sección de búsqueda por tipo de célula -->
+  <div class="search-section">
+    <h2 class="section-title mb-4">
+      <i class="bi bi-cell me-2"></i>Cell Type Search
+    </h2>
+    <app-cell-type-search></app-cell-type-search>
+  </div>
+
+  <!-- Espacio para futuros resultados -->
+  <div class="results-section mt-5" id="results">
+    <!-- Los resultados se mostrarán aquí -->
+  </div>
+</div>

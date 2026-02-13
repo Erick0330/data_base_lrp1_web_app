@@ -1,0 +1,73 @@
+<div class="protein-table">
+  <div class="table-responsive">
+    <table class="table table-hover align-middle">
+      <thead class="table-light">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Uniprot ID</th>
+          <th scope="col">Gen</th>
+          <th scope="col">Cell line/ Tissue</th>
+          <th scope="col">Detection Technique</th>
+          <th scope="col">Detection Type</th>
+          <th scope="col" class="text-end">Score</th>
+          <th scope="col">Reference</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (protein of proteins; track $index) {
+          <tr (click)="onRowClick(protein)" class="clickable-row">
+            <td>
+              <div class="protein-name">
+                <strong>{{ protein.name }}</strong>
+              </div>
+            </td>
+            <td>
+              @if (protein.uniprotId !== '*') {
+                <a
+                  href="https://www.uniprot.org/uniprot/{{ protein.uniprotId }}"
+                  target="_blank"
+                  class="uniprot-link"
+                  (click)="$event.stopPropagation()"
+                >
+                  {{ protein.uniprotId }}
+                  <i class="bi bi-box-arrow-up-right ms-1"></i>
+                </a>
+              } @else {
+                <span class="text-muted">*</span>
+              }
+            </td>
+            <td>{{ protein.gene }}</td>
+            <td>
+              {{ protein.cellLineTissue }}
+            </td>
+            <td>{{ protein.detectionTechnique }}</td>
+            <td>
+              <span [class]="getDetectionTypeClass(protein.detectionType)">
+                {{ protein.detectionType }}
+              </span>
+            </td>
+            <td class="text-end">
+              <div class="score-indicator">
+                <span class="score-value {{ getScoreClass(protein.score) }}">
+                  {{ protein.score | number: '1.2-2' }}
+                </span>
+              </div>
+            </td>
+            <td>
+              {{ protein.reference }}
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="8" class="text-center py-4">
+              <div class="empty-state">
+                <i class="bi bi-search display-6 text-muted"></i>
+                <p class="mt-3">No proteins found for this cell type</p>
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

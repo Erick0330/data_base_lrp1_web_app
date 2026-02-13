@@ -1,0 +1,70 @@
+<div class="ligand-search position-relative">
+  <div class="row g-3 align-items-end">
+    <div class="col-md-6">
+      <label for="ligandInput" class="form-label fw-semibold">
+        <i class="bi bi-bullseye me-1"></i>Search Term
+      </label>
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          id="ligandInput"
+          [ngModel]="searchTerm()"
+          (ngModelChange)="searchTerm.set($event); onSearchTermChange()"
+          (focus)="onSearchTermChange()"
+          (blur)="onBlur()"
+          [placeholder]="placeholder()"
+          autocomplete="off"
+        />
+      </div>
+
+      @if (filteredSuggestions().length > 0) {
+        <ul class="list-group position-absolute w-100 shadow-sm" style="z-index: 1000">
+          @for (suggestion of filteredSuggestions(); track suggestion) {
+            <li
+              class="list-group-item list-group-item-action pointer"
+              (click)="selectSuggestion(suggestion)"
+            >
+              {{ suggestion }}
+            </li>
+          }
+        </ul>
+      }
+    </div>
+
+    <div class="col-md-4">
+      <label for="searchType" class="form-label fw-semibold">
+        <i class="bi bi-filter me-1"></i>Search by
+      </label>
+      <select
+        class="form-select form-select-lg"
+        id="searchType"
+        [ngModel]="selectedOption()"
+        (ngModelChange)="selectedOption.set($event); onSearchTermChange()"
+      >
+        @for (option of searchOptions; track option.value) {
+          <option [value]="option.value">{{ option.label }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="col-md-2">
+      <button
+        class="btn btn-primary btn-lg w-100"
+        (click)="onSearch()"
+        [disabled]="!searchTerm().trim()"
+      >
+        <i class="bi bi-search me-2"></i>Search
+      </button>
+    </div>
+  </div>
+
+  <div class="quick-examples mt-4">
+    <small class="text-muted">Quick examples for Search by Name: </small>
+    @for (example of ['Alpha-2-macroglobulin', 'Annexin A4', 'Apolipoprotein E']; track example) {
+      <button class="btn btn-sm btn-outline-primary mx-1" (click)="selectSuggestion(example)">
+        {{ example }}
+      </button>
+    }
+  </div>
+</div>

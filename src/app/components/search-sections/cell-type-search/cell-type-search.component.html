@@ -1,0 +1,45 @@
+<div class="cell-type-search">
+  <div class="row g-3 align-items-end">
+    <!-- Selector de tipo celular -->
+    <div class="col-md-10">
+      <label for="cellTypeSelect" class="form-label fw-semibold">
+        <i class="bi bi-grid-3x3-gap me-1"></i>Select Cell Type
+      </label>
+      <select
+        class="form-select form-select-lg"
+        id="cellTypeSelect"
+        [(ngModel)]="selectedCellType"
+      >
+        <option value="" disabled selected>Select Cell Type...</option>
+        <option *ngFor="let cellType of cellTypes" [value]="cellType">
+          {{ cellType }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Botón de búsqueda -->
+    <div class="col-md-2">
+      <button
+        class="btn btn-primary btn-lg w-100"
+        (click)="onSearch()"
+        [disabled]="!selectedCellType"
+      >
+        <i class="bi bi-search me-2"></i>Search
+      </button>
+    </div>
+  </div>
+
+  <!-- Cell types grid -->
+  <div class="cell-types-grid mt-4">
+    <h6 class="mb-3">Popular cell types:</h6>
+    <div class="d-flex flex-wrap gap-2">
+      <button
+        *ngFor="let popular of ['Fibroblasts', 'Chondrocytes', 'Epithelials']"
+        class="btn btn-outline-primary"
+        (click)="selectedCellType = popular; onSearch()"
+      >
+        {{ popular }}
+      </button>
+    </div>
+  </div>
+</div>

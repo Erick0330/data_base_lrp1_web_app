@@ -1,0 +1,120 @@
+/* Espacio para compensar el header fijo */
+.header-spacer {
+  height: 76px; /* Altura aproximada del navbar */
+}
+
+
+/* Estilos personalizados para el navbar */
+.navbar {
+  min-height: 76px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1030;
+}
+
+.navbar-brand {
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  max-width: 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-link {
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  margin: 0 0.2rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.nav-link.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+}
+
+/* Estilo específico para el botón hamburguesa */
+.navbar-toggler {
+  padding: 0.5rem;
+  margin-left: auto; /* Empuja el botón a la derecha */
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .navbar-brand {
+    max-width: 60%; /* Más espacio para el botón en móviles */
+    font-size: 1.2rem;
+  }
+
+  .navbar-collapse {
+    background-color: var(--bs-primary);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+
+  .nav-item {
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-link {
+    padding: 0.75rem 1rem;
+    text-align: center;
+  }
+}
+
+/* Para pantallas muy pequeñas (menos de 400px) */
+@media (max-width: 400px) {
+  .navbar-brand {
+    font-size: 1rem;
+    max-width: 55%;
+  }
+
+  .navbar-brand span.d-md-none {
+    font-size: 0.9rem;
+  }
+}
+
+/* Asegurar que el contenedor del botón esté siempre alineado a la derecha */
+.navbar > .container-fluid {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icons {
+  margin-right: 5px;
+}
+
+/* Para dispositivos móviles - layout horizontal fijo */
+@media (max-width: 991.98px) {
+  .navbar > .container-fluid {
+    flex-wrap: nowrap;
+  }
+
+  .navbar-brand {
+    flex-shrink: 1;
+    min-width: 0; /* Permite que se reduzca */
+  }
+
+  .d-flex.align-items-center.ms-auto {
+    flex-shrink: 0; /* Evita que el contenedor del botón se reduzca */
+    margin-left: auto !important; /* Fuerza a la derecha */
+  }
+}

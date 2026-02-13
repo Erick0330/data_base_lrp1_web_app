@@ -1,0 +1,144 @@
+.cell-type-results {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.page-header {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.header-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.header-copy {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.cell-type-title {
+  line-height: 1.15;
+}
+
+.header-visual {
+  flex: 0 0 clamp(270px, 30vw, 380px);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.network-frame {
+  margin: 0;
+  border-radius: 20px;
+  padding: 10px;
+  background: linear-gradient(140deg, #0d6efd 0%, #5ca9ff 55%, #9fd0ff 100%);
+  box-shadow: 0 14px 28px rgba(13, 110, 253, 0.22);
+}
+
+.network-frame-inner {
+  border-radius: 14px;
+  padding: 10px;
+  background: linear-gradient(145deg, #ffffff 0%, #eef3ff 100%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.network-photo {
+  display: block;
+  width: 100%;
+  height: 230px;
+  object-fit: contain;
+  border-radius: 10px;
+  background-color: #ffffff;
+  border: 1px solid #dce7ff;
+}
+
+.network-caption {
+  margin-top: 0.6rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: 0.02em;
+}
+
+.download-btn {
+  margin-top: 0.9rem;
+  width: 100%;
+}
+
+.stats-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.loading-state {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+.results-section {
+  animation: fadeIn 0.5s ease;
+}
+
+.no-results {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 4rem 2rem;
+}
+
+.info-box {
+  border-left: 4px solid #0d6efd;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .cell-type-results {
+    padding: 1rem;
+  }
+
+  .page-header {
+    padding: 1.5rem;
+  }
+
+  .header-layout {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .header-visual {
+    flex-basis: auto;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .network-photo {
+    height: 200px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

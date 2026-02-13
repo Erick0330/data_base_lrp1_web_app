@@ -1,0 +1,64 @@
+<div class="cell-expression-table">
+  <div class="table-responsive">
+    <table class="table table-hover align-middle">
+      <thead class="table-light">
+        <tr>
+          <th scope="col">Cell Line</th>
+          <th scope="col">Cell Type</th>
+          <th scope="col">Organism</th>
+          <th scope="col">Detection Technique</th>
+          <th scope="col">Detection Type</th>
+          <th scope="col" class="text-end">Score</th>
+          <th scope="col">Validation</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (expression of expressions(); track $index) {
+          <tr (click)="onRowClick(expression.id)" class="clickable-row">
+            <td>
+              <strong>{{ expression.cellLine }}</strong>
+            </td>
+            <td>{{ expression.cellType }}</td>
+            <td>
+              <span class="badge bg-info text-dark">
+                {{ expression.organism }}
+              </span>
+            </td>
+            <td>{{ expression.detectionTechnique }}</td>
+            <td>
+              <span [class]="getDetectionTypeClass(expression.detectionType)">
+                {{ expression.detectionType }}
+              </span>
+            </td>
+            <td class="text-end">
+              <span class="score-value {{ getScoreClass(expression.score) }}">
+                {{ expression.score | number: '1.2-2' }}
+              </span>
+              @if (expression.expressionLevel !== undefined) {
+                <small class="d-block text-muted">
+                  {{ expression.expressionLevel }}% expression
+                </small>
+              }
+            </td>
+            <td>
+              @if (expression.validationStatus) {
+                <span [class]="getValidationClass(expression.validationStatus)">
+                  {{ expression.validationStatus }}
+                </span>
+              }
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="7" class="text-center py-4">
+              <div class="empty-state">
+                <i class="bi bi-search display-6 text-muted"></i>
+                <p class="mt-3">No cell expression data found</p>
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+:host {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Para que el icono sea fácil de recolorear */
+svg {
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}

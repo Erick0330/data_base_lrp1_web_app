@@ -1,0 +1,62 @@
+.ligand-search {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.form-control-lg, .form-select-lg {
+  border-radius: 8px;
+  border: 2px solid #dee2e6;
+  transition: all 0.3s ease;
+}
+
+.form-control-lg:focus, .form-select-lg:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+}
+
+.btn-lg {
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+}
+
+.quick-examples {
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+/* 1. Importante: El contenedor de la columna del input debe ser el ancla */
+.col-md-6 {
+  position: relative;
+}
+
+/* 2. Estilo para la lista de sugerencias */
+.list-group.position-absolute {
+  top: 100%;       /* Aparece justo debajo del input */
+  left: 0;
+  right: 0;
+  z-index: 1050;   /* Por encima de todo lo demás */
+  margin-top: 5px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Sombra para que flote */
+  max-height: 200px; /* Si hay muchas, que no se salga de la pantalla */
+  overflow-y: auto;  /* Scroll si hay muchas sugerencias */
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+.list-group-item {
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  transition: background 0.2s ease;
+}
+
+.list-group-item:hover {
+  background-color: #f8f9fa;
+  color: #3498db;
+}
+
+/* Para que la lista desaparezca visualmente si no hay nada */
+.list-group:empty {
+  display: none;
+}

@@ -1,0 +1,26 @@
+.cell-type-search {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.form-select-lg {
+  border-radius: 8px;
+  border: 2px solid #dee2e6;
+  transition: all 0.3s ease;
+}
+
+.form-select-lg:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+}
+
+.cell-types-grid {
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+.btn-outline-primary {
+  border-radius: 20px;
+  padding: 0.25rem 1rem;
+}

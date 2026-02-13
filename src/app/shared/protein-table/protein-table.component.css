@@ -1,0 +1,85 @@
+.protein-table {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.clickable-row {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clickable-row:hover {
+  background-color: rgba(13, 110, 253, 0.05) !important;
+  transform: translateX(2px);
+}
+
+.protein-name {
+  max-width: 300px;
+}
+
+.uniprot-link {
+  color: #0d6efd;
+  text-decoration: none;
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.uniprot-link:hover {
+  color: #0a58ca;
+  text-decoration: underline;
+}
+
+.score-indicator {
+  min-width: 80px;
+}
+
+.score-value {
+  font-weight: 600;
+  font-size: 1.1rem;
+  font-family: 'Courier New', monospace;
+}
+
+.score-high {
+  color: #198754;
+}
+
+.score-medium {
+  color: #fd7e14;
+}
+
+.score-low {
+  color: #ffc107;
+}
+
+.score-very-low {
+  color: #6c757d;
+}
+
+.empty-state {
+  opacity: 0.7;
+}
+
+/* Badge styling */
+.badge {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 20px;
+}
+
+/* Table header styling */
+.table-light th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+  border-bottom: 2px solid #dee2e6;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+/* Alinear la columna Score a la derecha */
+th.text-end, td.text-end {
+  text-align: right !important;
+}

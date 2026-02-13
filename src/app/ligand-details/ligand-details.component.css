@@ -1,0 +1,102 @@
+.ligand-details {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.protein-header {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.stats-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.protein-info {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.info-card {
+  margin-bottom: 1.5rem;
+}
+
+.info-label {
+  color: #6c757d;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.info-value {
+  color: #212529;
+  font-size: 1rem;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.uniprot-link {
+  color: #0d6efd;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.uniprot-link:hover {
+  color: #0a58ca;
+  text-decoration: underline;
+}
+
+.cell-expressions-section {
+  margin-top: 2rem;
+}
+
+.loading-state {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-results {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 4rem 2rem;
+}
+
+.info-box {
+  border-left: 4px solid #0d6efd;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .ligand-details {
+    padding: 1rem;
+  }
+
+  .protein-header,
+  .protein-info {
+    padding: 1.5rem;
+  }
+
+  .d-flex.justify-content-between.align-items-start {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .text-end {
+    text-align: left !important;
+    width: 100%;
+  }
+}

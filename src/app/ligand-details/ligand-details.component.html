@@ -1,0 +1,182 @@
+<div class="ligand-details">
+  <!-- Botón de volver -->
+  <button class="btn btn-outline-secondary mb-3" (click)="goBack()">
+    @if (source() === 'cell-type-table') {
+    <i class="bi bi-arrow-left me-2"></i>Back to Cell Type Results
+    } @else {
+    <i class="bi bi-arrow-left me-2"></i>Back to Search
+    }
+  </button>
+
+  <!-- Agregar breadcrumbs debajo del botón de volver -->
+@if (source() === 'cell-type-table' && cellType) {
+  <nav aria-label="breadcrumb" class="mb-3">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/">Home</a>
+      </li>
+      <li class="breadcrumb-item">
+        <!-- Usar el método encodeURIComponent de la clase -->
+        <a [routerLink]="['/cell-type', encodeURIComponent(cellType)]">
+          {{ cellType }}
+        </a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        {{ protein()?.name || 'Protein Details' }}
+      </li>
+    </ol>
+  </nav>
+}
+
+  @if (source() === 'cell-type-table' && cellType) {
+  <div class="alert alert-info d-flex align-items-center mb-3">
+    <i class="bi bi-info-circle me-2"></i>
+    Viewing protein details from <strong>{{ cellType }}</strong> cell type results
+  </div>
+}
+
+  @if (isLoading()) {
+  <div class="loading-state text-center py-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="mt-3 text-muted">Loading ligand data...</p>
+  </div>
+  } @else {
+  @if (protein()) {
+  <!-- Header con nombre de la proteína -->
+  <div class="protein-header mb-4">
+    <div class="d-flex justify-content-between align-items-start">
+      <div>
+        <h1 class="display-6 fw-bold text-primary mb-2">
+          {{ protein()!.name }}
+        </h1>
+        <p class="lead text-muted">
+          Ligand search results
+        </p>
+      </div>
+      <div class="text-end">
+        <button class="btn btn-primary" (click)="onDownload()">
+          <i class="bi bi-download me-2"></i>Download CSV
+        </button>
+      </div>
+    </div>
+
+    <div class="stats-bar mt-3">
+      <span class="badge bg-light text-dark me-3">
+        <i class="bi bi-grid-3x3-gap me-1"></i>
+        {{ totalCellTypes() }} Cell Types
+      </span>
+      <span class="badge bg-light text-dark">
+        <i class="bi bi-clock me-1"></i>
+        Updated {{ lastUpdated() | date:'mediumDate' }}
+      </span>
+    </div>
+  </div>
+
+  <!-- Información básica de la proteína -->
+  <div class="protein-info mb-5">
+    <h4 class="mb-3">
+      <i class="bi bi-info-circle me-2"></i>Protein Information
+    </h4>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="info-card">
+          <h6 class="info-label">Gene</h6>
+          <p class="info-value">{{ protein()!.gene }}</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="info-card">
+          <h6 class="info-label">Uniprot ID</h6>
+          <p class="info-value">
+            @if (protein()!.uniprotId !== '*') {
+                <a
+                  href="https://www.uniprot.org/uniprot/{{ protein()!.uniprotId }}"
+                  target="_blank"
+                  class="uniprot-link"
+                  (click)="$event.stopPropagation()"
+                >
+                  {{ protein()!.uniprotId }}
+                  <i class="bi bi-box-arrow-up-right ms-1"></i>
+                </a>
+              } @else {
+                <span class="text-muted">*</span>
+              }
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="info-card">
+          <h6 class="info-label">Function</h6>
+          <p class="info-value">{{ protein()!.function }}</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="info-card">
+          <h6 class="info-label">Cellular Location</h6>
+          <p class="info-value">{{ protein()!.cellularLocation }}</p>
+        </div>
+      </div>
+      @if (protein()!.description) {
+      <div class="col-12">
+        <div class="info-card">
+          <h6 class="info-label">Description</h6>
+          <p class="info-value">{{ protein()!.description }}</p>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+
+  <!-- Tabla de expresiones celulares -->
+  <div class="cell-expressions-section">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h4>
+        <i class="bi bi-table me-2"></i>Cell Type Expression Profile
+      </h4>
+      <div class="text-muted small">
+        Showing {{ cellExpressions().length }} of {{ totalCellTypes() }} cell types
+      </div>
+    </div>
+
+    @if (cellExpressions().length > 0) {
+    <app-cell-expression-table [expressions]="cellExpressions()" [proteinName]="protein()!.name"
+      (rowClicked)="onExpressionClick($event)"></app-cell-expression-table>
+
+    <!-- Información adicional -->
+    <div class="info-box mt-4 p-3 bg-light rounded">
+      <h6 class="mb-2">
+        <i class="bi bi-lightbulb me-2"></i>Understanding the Data
+      </h6>
+      <p class="mb-0 small">
+        This table shows all cell types where {{ protein()!.name }} has been detected.
+        <strong>Score</strong> indicates confidence in detection (0-1 scale).
+        <strong>Detection Type</strong> categorizes the throughput of the experimental method.
+        <strong>Validation Status</strong> indicates the level of experimental evidence.
+      </p>
+    </div>
+    } @else {
+    <div class="no-results text-center py-5">
+      <i class="bi bi-search display-1 text-muted"></i>
+      <h3 class="mt-3">No expression data found</h3>
+      <p class="text-muted">
+        No cell type expression data has been recorded for {{ protein()!.name }}.
+      </p>
+    </div>
+    }
+  </div>
+  } @else {
+  <div class="no-results text-center py-5">
+    <i class="bi bi-search display-1 text-muted"></i>
+    <h3 class="mt-3">No protein found</h3>
+    <p class="text-muted">
+      No protein matches your search criteria for "{{ searchTerm() }}" ({{ searchType() }}).
+    </p>
+    <button class="btn btn-outline-primary mt-2" (click)="goBack()">
+      <i class="bi bi-arrow-left me-1"></i>Back to search
+    </button>
+  </div>
+  }
+  }
+</div>

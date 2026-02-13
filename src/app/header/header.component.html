@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm fixed-top">
+  <div class="container-fluid">
+    <!-- Logo y nombre de la app -->
+    <a class="navbar-brand fw-bold d-flex align-items-center" routerLink="/" (click)="closeMenu()">
+      <!-- <img src="icons/molecule.png" alt="Molecule Icon" class="me-2 molecule-icon" width="24" height="24"> -->
+      <app-molecule-icon class="icons"></app-molecule-icon>
+      <span class="d-none d-md-inline">LRP1 Interactome Explorer</span>
+      <span class="d-md-none">LRP1 Explorer</span>
+    </a>
+
+    <!-- Contenedor para el botón hamburguesa alineado a la derecha -->
+    <div class="d-flex align-items-center ms-auto">
+      <!-- Botón hamburguesa para móviles -->
+      <button class="navbar-toggler border-0" type="button" (click)="toggleMenu()"
+        [attr.aria-expanded]="!isMenuCollapsed" aria-label="Toggle navigation" [class.collapsed]="isMenuCollapsed">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+    <!-- Menú de navegación -->
+    <div class="collapse navbar-collapse" [class.show]="!isMenuCollapsed" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+            (click)="closeMenu()">
+            <i class="bi bi-house-door me-1"></i>
+            Home
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about" routerLinkActive="active" (click)="closeMenu()">
+            <i class="bi bi-database me-1"></i>
+            About LRP-IntDB
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/stats" routerLinkActive="active" (click)="closeMenu()">
+            <i class="bi bi-bar-chart me-1"></i>
+            Statistics & Analysis
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/stats" routerLinkActive="active" (click)="closeMenu()">
+            <i class="bi bi-people me-1"></i>
+            LRP-IntDB Help & Tutorial
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Spacer para evitar que el contenido quede detrás del header fijo -->
+<div class="header-spacer"></div>
