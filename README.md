@@ -1,59 +1,109 @@
-# DataBaseLrp1WebApp
+# LRP1 Interactome Explorer
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.1.
+Aplicacion web para explorar la base de datos **LRP-IntDB** (LRP-1 Interactome DataBase): una coleccion curada de ligandos de LRP-1 organizados por tipo celular, con soporte para busqueda por proteina y analisis por contexto biologico.
 
-## Development server
+## Vista General
 
-To start a local development server, run:
+LRP1 Interactome Explorer permite:
 
-```bash
-ng serve
+- Buscar ligandos por `Protein Name`, `UniProt ID` o `Gene`.
+- Navegar por resultados agrupados por `Cell Type`.
+- Consultar detalles de proteinas y su perfil de expresion por tipo celular.
+- Exportar resultados a `CSV` para analisis externo.
+
+El proyecto esta orientado a facilitar investigacion translacional sobre LRP-1 y la toma de decisiones en estudios de interaccion ligando-receptor.
+
+## Funcionalidades Principales
+
+- **Busqueda inteligente de ligandos**
+  - Sugerencias dinamicas basadas en el dataset cargado.
+  - Navegacion directa a vista de detalle de proteina.
+- **Exploracion por tipo celular**
+  - Lista de proteinas detectadas en un tipo celular especifico.
+  - Acceso directo al detalle de cada proteina.
+- **Detalle de proteina**
+  - Informacion funcional (gen, UniProt, localizacion subcelular, funcion).
+  - Tabla de expresion por celula/tejido con score y tipo de deteccion.
+- **Exportacion de datos**
+  - Descarga CSV en vista de resultados por tipo celular y por ligando.
+- **Carga automatica de dataset**
+  - `data.xlsx` se lee al iniciar la app y se almacena en `localStorage` como `excelData`.
+
+## Stack Tecnologico
+
+- `Angular 21` (standalone components + Angular Signals)
+- `TypeScript`
+- `Bootstrap 5` + `Bootstrap Icons`
+- `xlsx` para parseo de Excel
+- `Vitest` para pruebas unitarias
+
+## Arquitectura de Datos
+
+1. Al iniciar la app, `src/main.ts` hace `fetch` de `public/data.xlsx`.
+2. `ExcelReaderService` parsea la primera hoja del Excel.
+3. Los registros se guardan en `localStorage` (`excelData`).
+4. Los servicios de dominio consumen esos datos:
+   - `CellTypeDataService`: resultados por tipo celular.
+   - `LigandDataService`: detalle por ligando/proteina.
+
+## Estructura del Proyecto
+
+```text
+src/
+  app/
+    components/
+      intro-section/
+      search-sections/
+        ligand-search/
+        cell-type-search/
+    services/
+      excel-reader.service.ts
+      ligand-data.service.ts
+      cell-type-data.service.ts
+    cell-type-results/
+    ligand-details/
+    shared/
+      protein-table/
+      cell-expression-table/
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Requisitos
 
-## Code scaffolding
+- `Node.js` 20+ recomendado
+- `npm` 10+
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Instalacion y Ejecucion
 
 ```bash
-ng generate --help
+npm install
+npm run start
 ```
 
-## Building
+Abrir en: `http://localhost:4200`
 
-To build the project run:
+## Scripts Disponibles
 
-```bash
-ng build
-```
+- `npm run start`: servidor de desarrollo.
+- `npm run build`: build de produccion en `dist/`.
+- `npm run watch`: build en modo watch (development).
+- `npm run test`: pruebas unitarias.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Rutas Principales
 
-## Running unit tests
+- `/` -> Home con busqueda por ligando y por tipo celular.
+- `/cell-type/:cellType` -> Resultados por tipo celular.
+- `/ligand-details?term=<value>&type=<name|uniprot|gene>` -> Detalle del ligando.
+- `/protein/:proteinId` -> Ruta declarada para detalle por ID (actualmente reutiliza `LigandDetailsComponent`).
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Fuente de Datos
 
-```bash
-ng test
-```
+- Archivo principal: `public/data.xlsx`
+- Copia adicional: `src/assets/data.xlsx`
 
-## Running end-to-end tests
+> Nota: si se actualiza el Excel, conviene limpiar `localStorage` del navegador para recargar datos en caliente.
 
-For end-to-end (e2e) testing, run:
+## Calidad y Estado
 
-```bash
-ng e2e
-```
+- El proyecto incluye pruebas unitarias base (`*.spec.ts`).
+- Algunas entradas del menu superior (`/about`, `/stats`) aparecen en la interfaz pero no estan definidas en el enrutamiento actual.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
