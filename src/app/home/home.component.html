@@ -1,6 +1,22 @@
 <div class="home-container">
   <app-intro-section></app-intro-section>
 
+  <div class="search-section mb-5">
+    <h2 class="section-title mb-4">
+      <i class="bi bi-search me-2"></i>Ligand Search
+    </h2>
+    <app-ligand-search (search)="onLigandSearch($event)"></app-ligand-search>
+  </div>
+
+  <div class="search-section">
+    <h2 class="section-title mb-4">
+      <i class="bi bi-cell me-2"></i>Cell Type Search
+    </h2>
+    <app-cell-type-search></app-cell-type-search>
+  </div>
+
+  <div class="results-section mt-5" id="results"></div>
+
   <section class="downloads-section mb-5" aria-labelledby="downloads-title">
     <div class="downloads-header">
       <h2 class="section-title mb-2" id="downloads-title">
@@ -32,20 +48,4 @@
       </article>
     </div>
   </section>
-
-  <div class="search-section mb-5">
-    <h2 class="section-title mb-4">
-      <i class="bi bi-search me-2"></i>Ligand Search
-    </h2>
-    <app-ligand-search (search)="onLigandSearch($event)"></app-ligand-search>
-  </div>
-
-  <div class="search-section">
-    <h2 class="section-title mb-4">
-      <i class="bi bi-cell me-2"></i>Cell Type Search
-    </h2>
-    <app-cell-type-search></app-cell-type-search>
-  </div>
-
-  <div class="results-section mt-5" id="results"></div>
 </div>

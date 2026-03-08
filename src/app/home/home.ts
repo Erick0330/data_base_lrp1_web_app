@@ -31,7 +31,7 @@ export class HomeComponent {
       buttonLabel: 'Download Excel'
     },
     {
-      title: 'Reference PDF',
+      title: 'Multimolecular complexes PDF',
       description: 'Download the supporting PDF for the multimolecular complexes formed by the LRP-1 receptor.',
       href: '/Table%201.%20Multimolecular%20complexes%20formed%20by%20the%20LRP-1%20receptor.pdf',
       fileName: 'Table 1. Multimolecular complexes formed by the LRP-1 receptor.pdf',

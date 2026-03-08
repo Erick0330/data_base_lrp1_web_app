@@ -3,7 +3,6 @@ import { HomeComponent } from './home/home';
 import { CellTypeResultsComponent } from './cell-type-results/cell-type-results.component';
 import { LigandDetailsComponent } from './ligand-details/ligand-details.component';
 import { getCellTypeDisplayName } from './shared/cell-type-image.util';
-import { StatisticsComponent } from './statistics/statistics.component';
 import { AboutComponent } from './about/about.component';
 import { HelpComponent } from './help/help.component';
 
@@ -31,8 +30,7 @@ export const routes: Routes = [
   },
   {
     path: 'stats',
-    component: StatisticsComponent,
-    title: 'Statistics & Analysis - LRP-IntDB'
+    redirectTo: ''
   },
   {
     path: 'about',

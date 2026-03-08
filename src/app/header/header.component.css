@@ -38,6 +38,17 @@
   font-weight: 600;
 }
 
+.nav-link-disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.nav-link-disabled:hover {
+  background-color: transparent;
+  transform: none;
+}
+
 /* Estilo específico para el botón hamburguesa */
 .navbar-toggler {
   padding: 0.5rem;
