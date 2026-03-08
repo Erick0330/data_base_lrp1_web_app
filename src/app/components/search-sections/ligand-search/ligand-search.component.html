@@ -10,8 +10,8 @@
           class="form-control form-control-lg"
           id="ligandInput"
           [ngModel]="searchTerm()"
-          (ngModelChange)="searchTerm.set($event); onSearchTermChange()"
-          (focus)="onSearchTermChange()"
+          (ngModelChange)="onSearchTermChange($event)"
+          (focus)="onInputFocus()"
           (blur)="onBlur()"
           [placeholder]="placeholder()"
           autocomplete="off"
@@ -40,7 +40,7 @@
         class="form-select form-select-lg"
         id="searchType"
         [ngModel]="selectedOption()"
-        (ngModelChange)="selectedOption.set($event); onSearchTermChange()"
+        (ngModelChange)="onSearchTypeChange($event)"
       >
         @for (option of searchOptions; track option.value) {
           <option [value]="option.value">{{ option.label }}</option>

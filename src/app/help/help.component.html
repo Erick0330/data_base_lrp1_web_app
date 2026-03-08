@@ -1,0 +1,274 @@
+<div class="help-container">
+  <!-- Page Header -->
+  <div class="page-header mb-5">
+    <h1 class="display-5 fw-bold text-primary mb-3">
+      <i class="bi bi-question-circle me-2"></i>LRP-IntDB Help & Tutorial
+    </h1>
+    <div class="header-divider"></div>
+  </div>
+
+  <!-- Introduction -->
+  <section class="content-section mb-4">
+    <div class="text-content">
+      <p>LRP-IntDB (LRP-1 Interactome Database) is a manually curated, cell-type-specific protein&ndash;protein interaction resource exclusively dedicated to the Low-density Lipoprotein Receptor-related Protein 1 (LRP-1). This tutorial will walk you through all the features of the web interface, from searching for ligands to downloading custom datasets.</p>
+    </div>
+  </section>
+
+  <!-- Section 1: Home Page - Search Options -->
+  <section class="content-section mb-4">
+    <h2 class="section-subtitle">
+      <span class="section-number">1</span>
+      Home Page &ndash; Search Options
+    </h2>
+
+    <div class="text-content">
+      <p>The Home page provides two complementary ways to access the data:</p>
+    </div>
+
+    <!-- A) Search by protein -->
+    <div class="subsection">
+      <h3 class="subsection-title">A) Search by protein (ligand)</h3>
+      <div class="text-content">
+        <p>Use this option when you already know a specific LRP-1 ligand (protein, gene, or Uniprot ID) and want to know whether its interaction with LRP&#8209;1 has been validated, in which cell types, and with what confidence.</p>
+      </div>
+
+      <div class="how-to-box">
+        <h4 class="how-to-title"><i class="bi bi-gear me-2"></i>How to use it:</h4>
+        <ol class="steps-list">
+          <li>Locate the search box on the upper part of the Home page.</li>
+          <li>Enter any of the following identifiers:
+            <ul class="sub-list">
+              <li>Protein name (e.g., &ldquo;Apolipoprotein E&rdquo;, &ldquo;APOE&rdquo;)</li>
+              <li>Gene name (e.g., &ldquo;APOE&rdquo;, &ldquo;PRNP&rdquo;)</li>
+              <li>UniProt ID (e.g., &ldquo;P02649&rdquo;)</li>
+            </ul>
+          </li>
+          <li>Click Search or press Enter.</li>
+        </ol>
+      </div>
+
+      <div class="result-box">
+        <h4 class="result-title"><i class="bi bi-eye me-2"></i>What you will see:</h4>
+        <ul class="result-list">
+          <li>A summary card with the ligand&rsquo;s:
+            <ul class="sub-list">
+              <li>Full protein name, gene name, and UniProt accession.</li>
+              <li>Subcellular location (e.g., secreted, membrane, cytoplasmic).</li>
+              <li>Function &ndash; a brief description of the protein&rsquo;s biological role.</li>
+            </ul>
+          </li>
+          <li>A table listing all cell types or tissues where the ligand&ndash;LRP&#8209;1 interaction has been experimentally verified.</li>
+          <li>Each interaction is assigned a confidence score (see Score Interpretation below).</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- B) Search by cell type -->
+    <div class="subsection">
+      <h3 class="subsection-title">B) Search by cell type / tissue</h3>
+      <div class="text-content">
+        <p>Use this option to explore the full repertoire of LRP&#8209;1 ligands known to interact in a specific cellular context. This is particularly useful for hypothesis generation in disease&#8209; or tissue&#8209;specific research.</p>
+      </div>
+
+      <div class="how-to-box">
+        <h4 class="how-to-title"><i class="bi bi-gear me-2"></i>How to use it:</h4>
+        <ol class="steps-list">
+          <li>On the Home page, locate the dropdown menu labelled &ldquo;Select cell type / tissue&rdquo;.</li>
+          <li>Choose one of the 26 available cell types/tissues (e.g., neuron, hepatocyte, macrophage, brain, liver, etc.).</li>
+          <li>Alternatively, select &ldquo;Others&rdquo; to view ligands that have been experimentally validated but not yet assigned to a specific cell type.</li>
+        </ol>
+      </div>
+
+      <div class="result-box">
+        <h4 class="result-title"><i class="bi bi-eye me-2"></i>What you will see:</h4>
+        <ul class="result-list">
+          <li>A complete list of ligands that interact with LRP&#8209;1 in the chosen cell type.</li>
+          <li>For each ligand, the database displays:
+            <ul class="sub-list">
+              <li>Protein name, gene name, and UniProt ID.</li>
+              <li>Specific cell line or tissue used in the original study (e.g., &ldquo;SH&#8209;SY5Y&rdquo;, &ldquo;mouse brain lysate&rdquo;).</li>
+              <li>Confidence score (see below).</li>
+            </ul>
+          </li>
+          <li>Interactive network visualization &ndash; generated dynamically with Cytoscape.js &ndash; showing all ligands from your selection, color&#8209;coded by their validation level (e.g., high/medium/low confidence). You can zoom, drag, and hover over nodes to see details.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Understanding the Confidence Score -->
+  <section class="content-section mb-4">
+    <h2 class="section-subtitle">
+      <span class="section-number">2</span>
+      Understanding the Confidence Score
+    </h2>
+
+    <div class="text-content">
+      <p>Each interaction in LRP-IntDB is scored based on the strength and reproducibility of experimental evidence:</p>
+    </div>
+
+    <div class="score-table">
+      <div class="score-row score-high">
+        <div class="score-range">0.8 &ndash; 1.0</div>
+        <div class="score-level"><span class="badge bg-success">High confidence</span></div>
+        <div class="score-description">validated by multiple orthogonal methods or in multiple independent studies.</div>
+      </div>
+      <div class="score-row score-medium">
+        <div class="score-range">0.5 &ndash; 0.79</div>
+        <div class="score-level"><span class="badge bg-warning text-dark">Medium confidence</span></div>
+        <div class="score-description">supported by at least one well&#8209;controlled study, but not yet widely replicated.</div>
+      </div>
+      <div class="score-row score-low">
+        <div class="score-range">0.1 &ndash; 0.49</div>
+        <div class="score-level"><span class="badge bg-secondary">Low confidence</span></div>
+        <div class="score-description">preliminary evidence, single report, or non&#8209;standard assay.</div>
+      </div>
+    </div>
+
+    <div class="info-box bg-light p-3 rounded mt-3">
+      <i class="bi bi-info-circle text-primary me-2"></i>
+      <strong>Note:</strong> Scores are intended as a guide for prioritization; even low&#8209;scoring interactions may be biologically relevant in specific contexts.
+    </div>
+  </section>
+
+  <!-- Section 3: Statistics and Analysis Page -->
+  <section class="content-section mb-4">
+    <h2 class="section-subtitle">
+      <span class="section-number">3</span>
+      Statistics and Analysis Page
+    </h2>
+
+    <div class="text-content">
+      <p>The &ldquo;Statistics & Analysis&rdquo; page provides a global overview of the LRP&#8209;1 interactome and pre&#8209;computed functional enrichments.</p>
+    </div>
+  </section>
+
+  <!-- Section 4: Downloads Page -->
+  <section class="content-section mb-4">
+    <h2 class="section-subtitle">
+      <span class="section-number">4</span>
+      Downloads Page
+    </h2>
+
+    <div class="text-content">
+      <p>All data in LRP&#8209;IntDB are freely available for download in standard formats. Simply click the corresponding button on the Downloads page. No registration required.</p>
+    </div>
+  </section>
+
+  <!-- Section 5: About Us Page -->
+  <section class="content-section mb-4">
+    <h2 class="section-subtitle">
+      <span class="section-number">5</span>
+      About Us Page
+    </h2>
+
+    <div class="text-content">
+      <p>The &ldquo;About Us&rdquo; page contains:</p>
+      <ul class="content-list">
+        <li>The mission and philosophy behind LRP&#8209;IntDB.</li>
+        <li>Citation instructions (once the accompanying manuscript is published).</li>
+        <li>Contact information &ndash; we welcome feedback, error reports, and new interaction submissions.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Section 6: FAQ -->
+  <section class="content-section mb-4">
+    <h2 class="section-subtitle">
+      <span class="section-number">6</span>
+      Frequently Asked Questions (FAQ)
+    </h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="bi bi-chat-left-text me-2"></i>
+          <strong>Q: Do I need to register or log in to use LRP-IntDB?</strong>
+        </div>
+        <div class="faq-answer">
+          <strong>A:</strong> No. The database is completely open and does not require registration.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="bi bi-chat-left-text me-2"></i>
+          <strong>Q: How often is LRP-IntDB updated?</strong>
+        </div>
+        <div class="faq-answer">
+          <strong>A:</strong> We continuously monitor the literature. Major updates are released annually; minor corrections are incorporated as they are identified.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="bi bi-chat-left-text me-2"></i>
+          <strong>Q: Can I submit a newly discovered LRP-1 interaction?</strong>
+        </div>
+        <div class="faq-answer">
+          <strong>A:</strong> Yes! Please send the details (ligand, cell type, experimental method, PubMed ID) to the contact emails above. We will review and include it in the next update.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="bi bi-chat-left-text me-2"></i>
+          <strong>Q: What does &ldquo;Others&rdquo; mean in the cell type dropdown?</strong>
+        </div>
+        <div class="faq-answer">
+          <strong>A:</strong> It contains ligands that have been experimentally validated but the original publication did not specify a clear cell type or tissue (e.g., studies using purified proteins or cell&#8209;free systems). We keep them as &ldquo;unassigned&rdquo; until further evidence becomes available.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="bi bi-chat-left-text me-2"></i>
+          <strong>Q: Are predicted interactions included?</strong>
+        </div>
+        <div class="faq-answer">
+          <strong>A:</strong> No. LRP-IntDB only includes experimentally validated interactions. We do not incorporate computational predictions or orthology transfers.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Need further assistance -->
+  <section class="content-section contact-section mb-4">
+    <h2 class="section-subtitle">
+      <i class="bi bi-headset me-2"></i>Need further assistance?
+    </h2>
+
+    <div class="text-content">
+      <p>If you have questions not covered in this tutorial, encounter technical issues, or wish to collaborate, please do not hesitate to contact us:</p>
+    </div>
+
+    <div class="contact-cards">
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="bi bi-person-fill"></i>
+        </div>
+        <div class="contact-info">
+          <div class="contact-name">Dr. Vivian Huerta Galindo</div>
+          <a href="mailto:vivian.huerta@cigb.edu.cu" class="contact-email">vivian.huerta&#64;cigb.edu.cu</a>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="bi bi-person-fill"></i>
+        </div>
+        <div class="contact-info">
+          <div class="contact-name">BSc. Daniela Maldonado</div>
+          <a href="mailto:daniela.maldonado@cigb.edu.cu" class="contact-email">daniela.maldonado&#64;cigb.edu.cu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Back to Home -->
+  <div class="text-center mt-5 mb-4">
+    <a routerLink="/" class="btn btn-outline-primary btn-lg">
+      <i class="bi bi-arrow-left me-2"></i>Back to Home
+    </a>
+  </div>
+</div>

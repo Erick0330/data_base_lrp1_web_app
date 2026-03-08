@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(SKILL_DIR=\"C:/Users/Dell/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/5b3b9a70-765c-47e4-878d-ef7b23d49653/527ef20b-0baf-4918-852a-1fa4762c9100/skills/docx\")",
+      "Bash(python \"$SKILL_DIR/scripts/office/unpack.py\" \"C:/Users/Dell/Documents/Abdiel/Pincha CIGB/Data Base LRP1/Info for DB.docx\" \"C:/Users/Dell/Documents/Abdiel/Pincha CIGB/Data Base LRP1/unpacked/\")",
+      "Bash(python \"C:/Users/Dell/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/5b3b9a70-765c-47e4-878d-ef7b23d49653/527ef20b-0baf-4918-852a-1fa4762c9100/skills/docx/scripts/office/unpack.py\" \"C:/Users/Dell/Documents/Abdiel/Pincha CIGB/Data Base LRP1/Info for DB.docx\" \"C:/Users/Dell/Documents/Abdiel/Pincha CIGB/Data Base LRP1/unpacked/\")",
+      "Bash(python3 -c \":*)",
+      "Bash(PYTHONIOENCODING=utf-8 python3 -c \":*)",
+      "Bash(npx ng build)",
+      "mcp__Claude_Preview__preview_start"
+    ]
+  }
+}

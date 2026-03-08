@@ -8,10 +8,10 @@
     <div class="header-layout">
       <div class="header-copy">
         <h1 class="display-6 fw-bold text-primary mb-2 cell-type-title">
-          {{ cellType() }}
+          {{ displayCellType() }}
         </h1>
         <p class="lead text-muted">
-          Proteins expressed in {{ cellType() }}
+          Proteins expressed in {{ displayCellType() }}
         </p>
 
         <div class="stats-bar mt-2">
@@ -31,11 +31,14 @@
           <div class="network-frame-inner">
             <img
               class="network-photo"
-              src="icons/Hepatocytes.jpg"
-              alt="Interaction network for {{ cellType() }}"
+              [src]="networkImageSrc()"
+              alt="Interaction network for {{ displayCellType() }}"
+              (error)="onNetworkImageError()"
             >
           </div>
-          <figcaption class="network-caption">Interaction network preview</figcaption>
+          <figcaption class="network-caption">
+            {{ hasSpecificNetworkImage() ? 'Interaction network preview' : 'Preview unavailable for this cell type' }}
+          </figcaption>
         </figure>
 
         <button class="btn btn-primary download-btn" (click)="onDownload()">
@@ -52,7 +55,7 @@
       <div class="spinner-border text-primary" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
-      <p class="mt-3 text-muted">Loading proteins for {{ cellType() }}...</p>
+      <p class="mt-3 text-muted">Loading proteins for {{ displayCellType() }}...</p>
     </div>
   } @else {
     <!-- Tabla de proteínas -->
@@ -70,7 +73,7 @@
             <i class="bi bi-info-circle me-2"></i>About this data
           </h6>
           <p class="mb-0 small">
-            This table shows proteins that have been experimentally detected in {{ cellType() }}.
+            This table shows proteins that have been experimentally detected in {{ displayCellType() }}.
             Click on any row to view detailed information about the protein, including
             interaction data with LRP1, expression levels, and supporting publications.
           </p>
@@ -80,7 +83,7 @@
           <i class="bi bi-search display-1 text-muted"></i>
           <h3 class="mt-3">No proteins found</h3>
           <p class="text-muted">
-            No proteins have been recorded for {{ cellType() }} in our database.
+            No proteins have been recorded for {{ displayCellType() }} in our database.
           </p>
           <button class="btn btn-outline-primary mt-2" (click)="goBack()">
             <i class="bi bi-arrow-left me-1"></i>Try another cell type

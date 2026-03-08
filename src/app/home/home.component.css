@@ -11,6 +11,69 @@
   padding-bottom: 0.5rem;
 }
 
+.downloads-section {
+  background:
+    linear-gradient(135deg, rgba(52, 152, 219, 0.08), rgba(39, 174, 96, 0.08)),
+    #ffffff;
+  border: 1px solid rgba(52, 152, 219, 0.18);
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(44, 62, 80, 0.08);
+}
+
+.downloads-subtitle {
+  color: #5f6f81;
+  max-width: 720px;
+}
+
+.downloads-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.download-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(44, 62, 80, 0.08);
+}
+
+.download-icon {
+  width: 3.25rem;
+  height: 3.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: #ecf6fd;
+  color: #2980b9;
+  font-size: 1.4rem;
+}
+
+.download-title {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.download-description {
+  margin: 0;
+  color: #5f6f81;
+  line-height: 1.6;
+}
+
+.download-link {
+  align-self: flex-start;
+  border-radius: 999px;
+  padding-inline: 1.25rem;
+}
+
 .search-section {
   background: #f8f9fa;
   border-radius: 12px;
@@ -27,6 +90,14 @@
 @media (max-width: 768px) {
   .home-container {
     padding: 1rem;
+  }
+
+  .downloads-section {
+    padding: 1.5rem;
+  }
+
+  .downloads-grid {
+    grid-template-columns: 1fr;
   }
 
   .search-section {

@@ -1,8 +1,13 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CellTypeDataService } from '../services/cell-type-data.service';
 import { ProteinTableComponent } from '../shared/protein-table/protein-table.component';
+import {
+  DEFAULT_CELL_TYPE_IMAGE,
+  getCellTypeDisplayName,
+  getCellTypeImage
+} from '../shared/cell-type-image.util';
 
 @Component({
   selector: 'app-cell-type-results',
@@ -18,9 +23,25 @@ export class CellTypeResultsComponent implements OnInit {
 
   isLoading = signal(true);
   cellType = signal('');
+  private imageLoadFailed = signal(false);
 
   proteins = this.cellTypeDataService.proteins;
   totalCount = this.cellTypeDataService.totalCount;
+  displayCellType = computed(() => getCellTypeDisplayName(this.cellType()));
+  networkImageSrc = computed(() => {
+    if (this.imageLoadFailed()) {
+      return DEFAULT_CELL_TYPE_IMAGE;
+    }
+
+    return getCellTypeImage(this.cellType()) ?? DEFAULT_CELL_TYPE_IMAGE;
+  });
+  hasSpecificNetworkImage = computed(() => {
+    if (this.imageLoadFailed()) {
+      return false;
+    }
+
+    return getCellTypeImage(this.cellType()) !== null;
+  });
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -35,6 +56,7 @@ export class CellTypeResultsComponent implements OnInit {
   private loadData(cellType: string) {
     this.isLoading.set(true);
     this.cellType.set(cellType);
+    this.imageLoadFailed.set(false);
 
     // No necesitamos timeout largo, pero lo dejamos breve para que la UI respire
     setTimeout(() => {
@@ -74,5 +96,9 @@ export class CellTypeResultsComponent implements OnInit {
 
   goBack() {
     this.router.navigate(['/']);
+  }
+
+  onNetworkImageError() {
+    this.imageLoadFailed.set(true);
   }
 }

@@ -1,0 +1,101 @@
+<div class="statistics-container">
+  <!-- Page Header -->
+  <div class="page-header mb-5">
+    <h1 class="display-5 fw-bold text-primary mb-3">
+      <i class="bi bi-bar-chart me-2"></i>Statistics & Analysis
+    </h1>
+    <div class="header-divider"></div>
+  </div>
+
+  <!-- Section 1: Coverage of validated LRP-1 ligands -->
+  <section class="content-section mb-5">
+    <h2 class="section-subtitle">
+      The coverage of validated LRP-1 ligands in public repositories is limited
+    </h2>
+
+    <div class="text-content">
+      <p>The identification of LRP-1 interacting proteins combined search of scientific literature and five PPI databases: STRING, IID, HIPPIE, IntAct, and BIOGRID (Figure 1). From the initial 2,078 PubMed articles matching the selected keywords, the screening process excluded 759 entries filtered by title/abstract and language, 478 duplicates, and 776 articles whose full-text review invalidated the reported interaction. The remaining 197 articles yielded 208 unique interacting proteins.</p>
+    </div>
+
+    <div class="figure-container">
+      <img src="images/figure1-methodology.png" alt="Figure 1. Methodology for constructing a curated database of protein-protein interactions involving the LRP-1 receptor" class="figure-image" />
+      <p class="figure-caption">
+        <strong>Figure 1. Methodology for constructing a curated database of protein-protein interactions involving the LRP-1 receptor.</strong> A literature search was conducted using the keywords shown. Protein-protein interaction databases: STRING (v12.0, https://string-db.org/), IID (v.2025-05, https://iid.ophid.utoronto.ca/), HIPPIE (v2.3, https://cbdm-01.zdv.uni-mainz.de/~mschaefer/hippie/index.php), BIOGRID (v5.0.253, https://thebiogrid.org/), and IntAct (v1.0.4, https://www.ebi.ac.uk/intact/home).
+      </p>
+    </div>
+
+    <div class="text-content">
+      <p>The search in the selected PPI databases yielded 1,217 candidate ligands. Subsequent filtering removed 49 protein pairs lacking LRP-1 as an interactor, 635 duplicate entries, and 303 predictions with low reliability scores. A manual review of the literature for the remaining 230 candidates excluded a further 193 entries due to insufficient evidence, while confirming 37 ligands already identified in the PubMed search. Only 15% of reported of validated LRP-1 interactions are included in STRING, IID, HIPPIE, IntAct, and BIOGRID repositories.</p>
+
+      <p>The resulting LRP-IntDB contains 236 cellular proteins organized by cell type. It also includes 4 bacterial toxins, Toxin A (tcdA), Exotoxin A (eta), Toxin TpeL (tpeL), and Tetanus Toxin C (Hart et&nbsp;al., 2004; Kounnas et&nbsp;al., 1992; Schorch et&nbsp;al., 2014; Sch&ouml;ttelndreier et&nbsp;al., 2020) and 5 viral proteins that constitute bona fide interactions of this receptor. The viral proteins identified comprise the envelope proteins of the viruses for which LRP-1 is a receptor or proteins related to the replication cycle: Glycoprotein Gn of RVFV, SFTSV, and OROV, the E protein of DENV, and the tat protein of HIV-1 (Ganaie et&nbsp;al., 2021; Huerta et&nbsp;al., 2024; Liu et&nbsp;al., 2000; Schwarz et&nbsp;al., 2022; Xing et&nbsp;al., 2025).</p>
+
+      <p>The identified cellular proteins exhibit a wide variety of functions, including proteases, protease inhibitors, hydrolases, growth factors, chaperones, extracellular matrix components, cytokines, and DNA- or RNA-binding proteins (Figure 3.A). Proteases and protease inhibitors constitute the highest fraction (25%), followed by developmental proteins (7%) and hydrolases (5%). Among the identified proteins, 84% have a resolved three-dimensional structure deposited in the PDB. However, only A2M, RAP, and APOE have been structurally characterized as a crystallographic complex with LRP-1. Many LRP-1-interacting proteins function within two- or three-component molecular complexes. LRP-IntDB provides the first list of 39 such complexes (Table 1), including the direct-binding partner and the cell type in which the interaction was reported. To date, these molecular complexes and the remaining receptor ligands have been documented in 26 distinct cell types or tissues. Fibroblasts and chondrocytes have the highest number of recorded ligands, with 62 and 76 proteins, respectively. Most cell-based interaction validation assays utilized the mouse embryonic fibroblasts (MEF) cell line, in which LRP-1 is highly expressed (Martin et&nbsp;al., 2025).</p>
+    </div>
+
+    <div class="figure-container">
+      <img src="images/figure3-characterization.png" alt="Figure 3. Characterization and validation of the LRP-1 interactome in LRP-IntDB" class="figure-image" />
+      <p class="figure-caption">
+        <strong>Figure 3. Characterization and validation of the LRP-1 interactome in LRP-IntDB.</strong> <strong>A)</strong> Pie chart with the most represented biological functions assigned in Gene Ontology (Carbon et&nbsp;al., 2009) for proteins registered in LRP-IntDB database. Between parentheses appears the percentage of proteins identified for each function. <strong>B)</strong> Summary of the most common detection techniques recorded in LRP-IntDB for ligand validation. &ldquo;Solid phase binding assays&rdquo; include all the experiments that verified the interaction with one immobilized protein. &ldquo;LRP-1 functional blocking&rdquo; includes assays that measure variations in ligand internalization, functional variations and signaling regulation following receptor blockade (using a known ligand, an antibody, or gene silencing). <strong>C)</strong> Interaction network with LRP-1 ligands identified in neurons. The score of each ligand was used to plot in Force-Directed-Layout mode using Cytoscape (v3.10.0), with the STRING flat node design. Protein nodes are identified by gene name and colored according to their function; filled nodes correspond to proteins with determined 3D structure. Ligands with higher level of validation are plotted closer to the receptor and the interaction line showing greater intensity. Interacting proteins with a validation score higher than 0.8 are plotted with a double line.
+      </p>
+    </div>
+
+    <div class="text-content">
+      <p>The interactions recorded in LRP-IntDB were identified using 45 detection techniques including an arrange of direct binding assays and hight-throughput techniques. The 32% of LRP-1 interacting proteins are validated for the combination of at least one high-validation technique with a non-binary experiment. Mass spectrometry is the most used technique for ligand identification, followed by LRP-1 functional blocking and solid phase binding assays (Figure 3.B). Ligand capture experiments using either the full-length receptor or recombinant fragments, commonly referred as &ldquo;ligandome&rdquo; or &ldquo;interactome&rdquo; assays, allows the identification of a greater number of tissue- or cell line-specific interactions using mass spectrometry. That&rsquo;s the case of nerve tissue, the cornea tissue, and chondrocytes; with 72, 28, and 52 ligands identified, respectively. This strategy facilitates the de novo identification of a significant number of receptor-interacting proteins, and even determines the cluster responsible for the binding. The LRP-IntDB database uses the term &ldquo;LRP-1 dependent clearance&rdquo; to group assays that measure variations in ligand internalization following receptor blockade, either using a known ligand (e.g. RAP and A2M), an antibody, or gene silencing. The term &ldquo;LRP-1 functional blocking&rdquo; used in Figure 3.B, includes assays that evaluate the impact of receptor blockade on ligand internalization, functional responses, and downstream signaling.</p>
+
+      <p>The LRP-IntDB database has its own algorithm designed in JavaScript that assigns each protein a cell type-specific score from 0 to 1 based on the level of validation that can be visualized in interaction networks (Figure 3.C). Proteins were positioned at distances inversely proportional to their scores, resulting in a plot where higher-confidence interactors appear closer to the receptor, thereby facilitating rapid assessment of their validation status. Ligands positioned closer to LRP-1 are generally achieved through combinations of orthogonal approaches or a binary detection method coupled with at least one high-throughput technique. The neuronal interaction network (Figure 3.C) illustrates this principle, highly validated ligands (e.g., PRNP, TIMP1, PLAT) map close to the receptor, whereas proteins with lower validation (e.g., PSAP, MT2A, APP) are positioned farther away.</p>
+    </div>
+  </section>
+
+  <!-- Section 2: Cell type-specific interactome -->
+  <section class="content-section mb-5">
+    <h2 class="section-subtitle">
+      The LRP-1 interactome is cell type-specific
+    </h2>
+
+    <div class="text-content">
+      <p>Comparative analyses of cell types and tissues containing recorded LRP-1 interactions reveal that the receptor&rsquo;s interactome is dependent on the cell type under analysis. These analyses employed the Jaccard Index, a statistical parameter of similarity between two sets, to construct a comparison matrix across the 26 cell types recorded (Figure 4.A). The &ldquo;Others&rdquo; group contains ligands lacking verified interactions in any specific cell type. In 65&ndash;70% of cases, the Jaccard index was less than 0.1, demonstrating the low degree of similarity between the different cell types analyzed. Of all pairwise combinations, 92.9% exhibited a coefficient below 0.1, 5.5% of the values remained in the range of 0.1 to 0.3, leaving only 1.5% of cell types with a coefficient greater than 0.3. The highest coefficients correspond to cell types with very few identified ligands, where the probability of coincidence increases. That&rsquo;s the case for oligodendrocytes&ndash;osteoblasts, as well as astrocytes&ndash;Schwann cells, in which the similarity index value is 0.5. On the other hand, for cell types with a greater number of recorded ligands, such as neurons, cornea tissue, and cartilage, exhibit much lower similarity scores.</p>
+    </div>
+
+    <div class="figure-container">
+      <img src="images/figure4-tables.png" alt="Figure 4. Comparative analysis between cell types in which LRP-1 ligands have been identified" class="figure-image" />
+      <p class="figure-caption">
+        <strong>Figure 4. Comparative analysis between cell types in which LRP-1 ligands have been identified.</strong> <strong>A)</strong> Comparison matrix with the Jaccard index between cell types in which LRP-1 ligands have been identified. The Jaccard index was calculated using the online tool: https://planetcalc.com/9651/, and the matrix was generated in GraphPad Prism software (v10.1.2). Central Nervous System (CNS), Schwann Cells (SCs), Smooth Muscle Cells (SMCs), Vascular Smooth Muscle Cells (VSMCs). <strong>B)</strong> Venn diagram showing ligand overlapping for the LRP-1 receptor among nervous tissue, corneal cells, fibroblasts, chondrocytes, and myeloid cells. The diagram was generated using the online tool: https://molbiotools.com/listcompare.php.
+      </p>
+    </div>
+
+    <div class="text-content">
+      <p>A Venn diagram compares the five cell types with the highest number of recorded interactions: nervous tissue, corneal tissue, fibroblasts, chondrocytes, and myeloid cells (Figure 4.B). Only receptor-associated protein (RAP), the receptor&rsquo;s molecular chaperone, is common among them, reaffirming the low degree of similarity of ligands between tissues. This result reinforces the idea of the high degree of cell-dependent specificity of the receptor interactome. The analysis identified only nine proteins common to five or more different cell types: Apolipoprotein E (APOE), Calreticulin (CALR), Plasminogen Activator Inhibitor 1 (SERPINE1), Tissue Plasminogen Activator (PLAT), Alpha-1-antitrypsin (SERPINA1), Prothrombin (F2), Urokinase-type plasminogen activator (PLAU), Sphingolipid-activating protein (PSAP), and Thrombospondin-1 (THBS1). The list is headed by APOE, identified as an LRP-1 ligand in seven different tissues or cell types to date: cornea tissue, endothelial, epithelial, fibroblasts, hepatocytes, neural and neurons. These proteins are widely characterized as LRP-1 ligands and their distribution in the organism enhance the probability of to coincide in different cellular environments and interact with the receptor.</p>
+    </div>
+  </section>
+
+  <!-- Section 3: Enrichment analysis -->
+  <section class="content-section mb-5">
+    <h2 class="section-subtitle">
+      LRP-1 interactome shows a high level of significance in enrichment analysis of biological processes and diseases
+    </h2>
+
+    <div class="text-content">
+      <p>Enrichment analyses of biological processes revealed that the LRP-1 interactome exhibits significantly higher enrichment levels compared to the genes identified from other protein interaction sources (Figure 5.A, B). Top-ranking processes within the LRP-1 interactome, such as extracellular matrix organization, endocytosis, and regulation of signaling pathways, align closely with the established functional roles of this receptor. The LRP-1 interactome exhibits 1,821 associated biological processes, whereas the combined PPI databases collectively present only 1,362 (Figure 5.E). Notably, only 45.63% of the processes recorded for LRP-IntDB were represented in the PPI databases, with 990 unidentified biological processes.</p>
+    </div>
+
+    <div class="figure-container">
+      <img src="images/figure5-enrichment.png" alt="Figure 5. Functional enrichment analysis with biological processes and diseases associated with genes identified in LRP-IntDB and PPI databases" class="figure-image" />
+      <p class="figure-caption">
+        <strong>Figure 5. Functional enrichment analysis with biological processes and diseases associated with genes identified in LRP-IntDB and PPI databases: IID, HIPPIE, IntAct, STRING, and BioGRID.</strong> <strong>A)</strong> Enrichment networks with biological processes associated with genes identified in LRP-IntDB. <strong>B)</strong> Enrichment networks with biological processes associated with genes identified in the PPI databases: IID, HIPPIE, IntAct, STRING, and BioGRID. <strong>C)</strong> Graph showing 20 of the diseases associated with genes identified in LRP-IntDB according to their level of significance. <strong>D)</strong> Graph showing 20 of the diseases associated with the genes identified in the PPI databases: IID, HIPPIE, IntAct, STRING, and BioGRID, according to their level of significance. The functional enrichment analysis networks were generated using Metascape software (v3.5.20250701), a p-value &lt;0.05 was considered statistically significant. The graphs corresponding to the associated diseases were generated using GraphPad Prism software (v9.4.0) based on the functional enrichment analysis developed in Metascape (v3.5.20250701). <strong>E,F)</strong> Pie charts showing the biological processes (E) and diseases (F) associated with the genes registered in LRP-IntDB and in the five PPI databases (PPI DB). <strong>G)</strong> Comparison of the degree of similarity between biological processes and diseases identified from genes registered in LRP-IntDB and five PPI databases using the Jaccard Index. The coefficient was calculated using the online tool: https://planetcalc.com/9651/.
+      </p>
+    </div>
+
+    <div class="text-content">
+      <p>Disease enrichment analysis of the LRP-1 interactome, based on genes identified in LRP-IntDB, demonstrated significantly higher significance levels compared to those derived from the selected PPI databases (Figure 5.C, D). In both cases, inflammation tops the list of diseases, with a p-value of 10<sup>-37</sup> and 10<sup>-16</sup> for LRP-IntDB and the PPI databases, respectively. However, diseases such as amyloidosis, in which there is strong evidence that LRP-1 plays a dual protective or pathogenic role depending on brain region, decreases 2 orders in the p-value of standard PPI databases compared to LRP-IntDB. The LRP-1 interacting proteins has 2,712 associated diseases, while the combined PPI databases list only 1,547. Consequently, only 46.38% of the identified diseases are represented in the PPI databases, leaving 1,454 associations unregistered (Figure 5.F).</p>
+
+      <p>The Jaccard index analysis further compared the degree of similarity between the biological processes and diseases associated with genes identified in LRP-IntDB and in other PPI databases (Figure 5.G). The coefficient showed a similarity value of 0.53 for biological processes and 0.59 for associated diseases. These relatively low values indicate a modest overlap, with only 831 shared biological processes and 1,258 shared diseases between the datasets (Figure 5.D, E). This finding reinforces the potential of LRP-IntDB as a precise and reliable resource for future studies and enrichment analyses focused on LRP-1 receptor ligands.</p>
+    </div>
+  </section>
+
+  <!-- Back to Home -->
+  <div class="text-center mt-5 mb-4">
+    <a routerLink="/" class="btn btn-outline-primary btn-lg">
+      <i class="bi bi-arrow-left me-2"></i>Back to Home
+    </a>
+  </div>
+</div>

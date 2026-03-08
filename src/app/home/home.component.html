@@ -1,8 +1,38 @@
 <div class="home-container">
-  <!-- Sección de introducción -->
   <app-intro-section></app-intro-section>
 
-  <!-- Sección de búsqueda por ligando -->
+  <section class="downloads-section mb-5" aria-labelledby="downloads-title">
+    <div class="downloads-header">
+      <h2 class="section-title mb-2" id="downloads-title">
+        <i class="bi bi-download me-2"></i>Downloads
+      </h2>
+      <p class="downloads-subtitle mb-0">
+        Download the source data and the supporting reference document directly from the home page.
+      </p>
+    </div>
+
+    <div class="downloads-grid mt-4">
+      <article class="download-card" *ngFor="let resource of downloadResources">
+        <div class="download-icon">
+          <i class="bi" [ngClass]="resource.icon"></i>
+        </div>
+
+        <div class="download-copy">
+          <h3 class="download-title">{{ resource.title }}</h3>
+          <p class="download-description">{{ resource.description }}</p>
+        </div>
+
+        <a
+          class="btn btn-primary download-link"
+          [href]="resource.href"
+          [attr.download]="resource.fileName"
+        >
+          <i class="bi bi-download me-2"></i>{{ resource.buttonLabel }}
+        </a>
+      </article>
+    </div>
+  </section>
+
   <div class="search-section mb-5">
     <h2 class="section-title mb-4">
       <i class="bi bi-search me-2"></i>Ligand Search
@@ -10,7 +40,6 @@
     <app-ligand-search (search)="onLigandSearch($event)"></app-ligand-search>
   </div>
 
-  <!-- Sección de búsqueda por tipo de célula -->
   <div class="search-section">
     <h2 class="section-title mb-4">
       <i class="bi bi-cell me-2"></i>Cell Type Search
@@ -18,8 +47,5 @@
     <app-cell-type-search></app-cell-type-search>
   </div>
 
-  <!-- Espacio para futuros resultados -->
-  <div class="results-section mt-5" id="results">
-    <!-- Los resultados se mostrarán aquí -->
-  </div>
+  <div class="results-section mt-5" id="results"></div>
 </div>

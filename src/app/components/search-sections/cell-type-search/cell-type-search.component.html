@@ -11,8 +11,8 @@
         [(ngModel)]="selectedCellType"
       >
         <option value="" disabled selected>Select Cell Type...</option>
-        <option *ngFor="let cellType of cellTypes" [value]="cellType">
-          {{ cellType }}
+        <option *ngFor="let cellType of cellTypeOptions" [value]="cellType.value">
+          {{ cellType.label }}
         </option>
       </select>
     </div>
